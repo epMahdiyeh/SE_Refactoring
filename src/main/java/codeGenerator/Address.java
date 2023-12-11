@@ -6,30 +6,22 @@ package codeGenerator;
 
 public class Address {
     public int num;
-    public TypeAddress Type;
+    public TypeAddress typeAdd;
     public varType varType;
 
-    public Address(int num, varType varType, TypeAddress Type) {
+    public Address(int num, varType varType, TypeAddress typeAdd) {
         this.num = num;
-        this.Type = Type;
+        this.typeAdd = typeAdd;
         this.varType = varType;
     }
 
     public Address(int num, varType varType) {
         this.num = num;
-        this.Type = TypeAddress.Direct;
+        this.typeAdd = new DirectAddress();
         this.varType = varType;
     }
 
     public String toString() {
-        switch (Type) {
-            case Direct:
-                return num + "";
-            case Indirect:
-                return "@" + num;
-            case Imidiate:
-                return "#" + num;
-        }
-        return num + "";
+        return typeAddress.toString(num);
     }
 }
