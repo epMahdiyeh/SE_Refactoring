@@ -25,6 +25,7 @@
 <img width="654" alt="3" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/a1fa012a-9ad4-47f2-b0f6-3d3f06a5c7f0">
 
 پیاده‌سازی کلاس DirectAddress:
+
 <img width="394" alt="4" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/a477777e-204c-4fb1-839a-be5ec626401f">
 
 پیاده‌سازی کلاس ImidiateAddress:
