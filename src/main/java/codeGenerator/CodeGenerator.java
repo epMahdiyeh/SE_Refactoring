@@ -262,6 +262,7 @@ public class CodeGenerator {
 //        String className = symbolStack.pop();
         try {
             Symbol s = symbolTable.getNextParam(callStack.peek(), methodName);
+            symbolTable.incrementIndex(callStack.peek(), methodName);
             varType t = varType.Int;
             switch (s.type) {
                 case Bool:
