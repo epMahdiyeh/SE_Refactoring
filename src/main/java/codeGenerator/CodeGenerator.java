@@ -136,12 +136,13 @@ public class CodeGenerator {
     }
 
     private void defMain() {
+        int currentCodeBlockAddress = memory.getCurrentCodeBlockAddress();
         //ss.pop();
         memory.add3AddressCode(ss.pop().num, Operation.JP, new Address(memory.getCurrentCodeBlockAddress(), varType.Address), null, null);
         String methodName = "main";
         String className = symbolStack.pop();
 
-        symbolTable.addMethod(className, methodName, memory.getCurrentCodeBlockAddress());
+        symbolTable.addMethod(className, methodName, currentCodeBlockAddress());
 
         symbolStack.push(className);
         symbolStack.push(methodName);
@@ -261,7 +262,6 @@ public class CodeGenerator {
 //        String className = symbolStack.pop();
         try {
             Symbol s = symbolTable.getNextParam(callStack.peek(), methodName);
-            symbolTable.incrementIndex(callStack.peek(), methodName);
             varType t = varType.Int;
             switch (s.type) {
                 case Bool:
