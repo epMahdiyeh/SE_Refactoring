@@ -7,11 +7,7 @@ public class MemoryFacade {
         this.memory = memory;
     }
 
-    public int getLastDataAddress() {
-        return memory.getLastDataAddress();
-    }
-
-    public void incrementLastDataAddress() {
-        memory.incrementLastDateAddress();
+    public int getDateAddress() {
+        return memory.getDateAddress();
     }
 }

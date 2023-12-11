@@ -31,9 +31,8 @@ public class SymbolTable {
     }
 
     public void addField(String fieldName, String className) {
-        klasses.get(className).Fields.put(fieldName, new Symbol(lastType, memFacade.getLastDataAddress()));
-        memFacade.incrementLastDataAddress();
-     }
+        klasses.get(className).Fields.put(fieldName, new Symbol(lastType, memFacade.getDateAddress()));
+    }
 
     public void addMethod(String className, String methodName, int address) {
         if (klasses.get(className).Methodes.containsKey(methodName)) {
@@ -51,9 +50,8 @@ public class SymbolTable {
         if (klasses.get(className).Methodes.get(methodName).localVariable.containsKey(localVariableName)) {
             ErrorHandler.printError("This variable already defined");
         }
-        klasses.get(className).Methodes.get(methodName).localVariable.put(localVariableName, new Symbol(lastType, memFacade.getLastDataAddress()));
-        memFacade.incrementLastDataAddress();
-        //        }catch (NullPointerException e){
+        klasses.get(className).Methodes.get(methodName).localVariable.put(localVariableName, new Symbol(lastType, memFacade.getDateAddress()));
+//        }catch (NullPointerException e){
 //            e.printStackTrace();
 //        }
     }
@@ -156,10 +154,8 @@ public class SymbolTable {
             this.codeAddress = codeAddress;
             this.returnType = returnType;
             this.orderdParameters = new ArrayList<>();
-            this.returnAddress = memFacade.getLastDataAddress();
-            memFacade.incrementLastDataAddress();
-            this.callerAddress = memFacade.getLastDataAddress();
-            memFacade.incrementLastDataAddress();
+            this.returnAddress = memFacade.getDateAddress();
+            this.callerAddress = memFacade.getDateAddress();
             this.parameters = new HashMap<>();
             this.localVariable = new HashMap<>();
         }
@@ -171,8 +167,7 @@ public class SymbolTable {
         }
 
         public void addParameter(String parameterName) {
-            parameters.put(parameterName, new Symbol(lastType, memFacade.getLastDataAddress()));
-            memFacade.incrementLastDataAddress();
+            parameters.put(parameterName, new Symbol(lastType, memFacade.getDateAddress()));
             orderdParameters.add(parameterName);
         }
 
