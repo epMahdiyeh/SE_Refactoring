@@ -18,5 +18,36 @@
 
 در این بازآرایی، به جای استفاده از ساختار switch-case، هر مورد را به یک کلاس جدید متناظر با همان case تبدیل می‌کنیم. برای این کار، enum طراحی شده مربوط به TypeAddress را به interface تبدیل کرده و تغییرات لازم را بصورت زیر اجرا می‌کنیم:
 
+<img width="654" alt="3" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/a1fa012a-9ad4-47f2-b0f6-3d3f06a5c7f0">
+
+پیاده‌سازی کلاس DirectAddress:
+<img width="394" alt="4" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/a477777e-204c-4fb1-839a-be5ec626401f">
+
+پیاده‌سازی کلاس ImidiateAddress:
+
+<img width="378" alt="5" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/34ee9117-5b89-4a0f-9447-f0ece2b7823b">
+
+پیاده‌سازی کلاس IndirectAddress:
+
+<img width="394" alt="6" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/a0d08611-31c4-4655-9a9f-b322f28efff8">
+
+بازآرایی Separate Query from Modifier:
+
+این بازآرایی به اصل CQRS می‌پردازد که مربوط به جداسازی دستورات و کوئری‌ها و وظایف مربوط به آن‌هاست. تفکیک این دستورات و کوئری‌ها به این معنی است که هر کدام می‌توانند در صورت نیاز بهینه شوند. درواقع کدهایی که داده‌ها را دریافت می‌کنند از کدهایی که تغییراتی را در یک Object ایجاد می‌کنند جدا می‌کنیم. در اینجا مقدار بازگشتی تابع getNextParameter را به شرح زیر تغییر میدهیم:
+
+<img width="666" alt="7" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/110e4c39-66e3-45fc-87fb-91d0c6a6c3d5">
+
+بازآرایی Self Encapsulate Field:
+
+در توابع یک کلاس، ممکن است مستقیما از متغیرهای خصوصی موجود در کلاس استفاده شود. گاهی اوقات این دسترسی مستقیم در کلاس انعطاف‌پذیری کافی را برای توسعه بهتر فراهم نمی‌کند. برای مثال در این پروژه lexicalAnalyzer دسترسی مستقیم به متغیر خصوصی matcher وجود دارد که به منظور تغییر این شرایط، متدهای setMatcher و getMatcher را طراحی می‌کنیم تا بجای استفاده مستقیم از matcher بتوانیم از این متدها استفاده کنیم:
+
+<img width="903" alt="8" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/bb3157a7-398b-436e-98af-26051af20395">
+
+بازآرایی Inline Temp:
+
+زمانی که متغیری داشته باشیم که صرفا حاصل یک expression به آن اختصاص داده می‌شود و کارایی دیگری برای متغیر وجود ندارد، می‌توانیم ارجاعات آن متغیر را با خود expression جایگزین کنیم. این مورد در Token و تابع hashCode دیده می‌شود که می‌توان آن را به شکل زیر تغییر داد:
+
+<img width="895" alt="9" src="https://github.com/epMahdiyeh/SE_Refactoring/assets/62205305/45df8711-4963-4652-84a7-7b45b36afd70">
+
 
 
